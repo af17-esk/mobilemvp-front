@@ -3,7 +3,7 @@ import { Modal } from "react-bootstrap";
 import Warning from "../../assets/Warning.svg";
 import Cross from "../../assets/Cross Gray.svg";
 import AlertSound from "../../assets/sounds/Alert.mp3";
-import { Howl, Howler } from "howler";
+// import { Howl, Howler } from "howler";
 import {
   BALANCE_LINE1,
   BALANCE_LINE2,
@@ -28,19 +28,19 @@ const AlertModal: React.FC<Props> = ({
   toggleSidebar,
   setToggleSidebar,
 }) => {
-  useEffect(() => {
-    if (showWarning) {
-      playNotification();
-    }
-  }, [showWarning]);
+  // useEffect(() => {
+  //   if (showWarning) {
+  //     playNotification();
+  //   }
+  // }, [showWarning]);
 
-  const playNotification = () => {
-    Howler.volume(1.0);
-    const sound = new Howl({
-      src: [AlertSound],
-    });
-    sound.play();
-  };
+  // const playNotification = () => {
+  //   Howler.volume(1.0);
+  //   const sound = new Howl({
+  //     src: [AlertSound],
+  //   });
+  //   sound.play();
+  // };
 
   const viewCart = () => {
     setShowWarning(false);

@@ -8,7 +8,7 @@ import InfoModal from "./Modal/InfoModal";
 import Successful from "../components/Successful";
 import { useLocation } from "react-router";
 import { MarketOptiontype, MarketType } from "../types";
-import { Howl, Howler } from "howler";
+// import { Howl, Howler } from "howler";
 import toast from "react-hot-toast";
 import axios from "axios";
 import AlertSound from "../assets/sounds/Alert.mp3";
@@ -277,14 +277,14 @@ const Survey = () => {
   let totalPurchase;
   let totalShares;
 
-  const playNotification = () => {
-    Howler.volume(1.0);
-    const sound = new Howl({
-      src: [AlertSound],
-      autoplay: true,
-    });
-    sound.play();
-  };
+  // const playNotification = () => {
+  //   Howler.volume(1.0);
+  //   const sound = new Howl({
+  //     src: [AlertSound],
+  //     autoplay: true,
+  //   });
+  //   sound.play();
+  // };
 
   const submitData = () => {
     setToggleSidebar(true);
@@ -381,7 +381,7 @@ const Survey = () => {
           setLocalTimerCount(count);
           setShowTimerAlert(true);
           setShowWarning(true);
-          playNotification();
+          // playNotification();
         }
         setTimer(i);
         setLocalTimer(JSON.stringify(i));
@@ -392,7 +392,7 @@ const Survey = () => {
   const showBalancePopup = () => {
     setShowTimerAlert(false);
     setShowWarning(true);
-    playNotification();
+    // playNotification();
   };
 
   if (cartData) {
