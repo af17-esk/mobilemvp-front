@@ -13,6 +13,8 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import AlertSound from "../assets/sounds/Alert.mp3";
 import useStickyState from "../hooks/useStickyState";
+import {Redirect, Route} from 'react-router-dom'
+import {stringify} from "querystring";
 
 const Survey = () => {
   const params = new URLSearchParams(useLocation().search);
@@ -95,12 +97,13 @@ const Survey = () => {
       let fetched_data = [
         {
           id: fetchedData.body[0].market1[0].id,
-          question: "Which Kodiak product will sell the most?",
+          question: "In the next 2 years, will at least 50% of medium-large office buildings " +
+              "(offices with 100 or more parking spaces for employees) have EV charging stations installed?",
           subtotal: 0,
           options: [
             {
               id: fetchedData.body[0].market1[0].option1.id,
-              name: "Bacon, Egg and Cheese Biscuit Protein Breakfast Sandwich",
+              name: "Yes",
               price: fetchedData.body[0].market1[0].option1.price_1
                 ? fetchedData.body[0].market1[0].option1.price_1
                 : 0.0,
@@ -109,41 +112,25 @@ const Survey = () => {
             },
             {
               id: fetchedData.body[0].market1[0].option2.id,
-              name: "Kids Chocolate Blueberry Power Waffle",
+              name: "No",
               price: fetchedData.body[0].market1[0].option2.price_2
                 ? fetchedData.body[0].market1[0].option2.price_2
                 : 0.0,
               quantity: fetchedData.body[0].market1[0].option2.bet_2,
               total: fetchedData.body[0].market1[0].option2.money_bet_2,
-            },
-            {
-              id: fetchedData.body[0].market1[0].option3.id,
-              name: "High Protein Multi-Purpose Cake Flour",
-              price: fetchedData.body[0].market1[0].option3.price_3
-                ? fetchedData.body[0].market1[0].option3.price_3
-                : 0.0,
-              quantity: fetchedData.body[0].market1[0].option3.bet_3,
-              total: fetchedData.body[0].market1[0].option3.money_bet_3,
-            },
-            {
-              id: fetchedData.body[0].market1[0].option4.id,
-              name: "Protein Power To-Go Bars",
-              price: fetchedData.body[0].market1[0].option4.price_4
-                ? fetchedData.body[0].market1[0].option4.price_4
-                : 0.0,
-              quantity: fetchedData.body[0].market1[0].option4.bet_4,
-              total: fetchedData.body[0].market1[0].option4.money_bet_4,
-            },
+            }
           ],
         },
         {
           id: fetchedData.body[0].market2[0].id,
-          question: "Who will be the host of Jeopardy! for the next season?",
+          question: "For current, or aspiring, EV owners who do not have access to " +
+              "charging at home, which regular valet-service charging option will be more popular by 2025?",
           subtotal: 0,
           options: [
             {
               id: fetchedData.body[0].market2[0].option1.id,
-              name: "Ken Jennings",
+              name: "Higher cost option: Service driver takes car, charges it at a nearby" +
+                  " DCFC (DC fast-charging) plaza for around 30 mins to 1 hour, and brings it back to the owner",
               price: fetchedData.body[0].market2[0].option1.price_1
                 ? fetchedData.body[0].market2[0].option1.price_1
                 : 0.0,
@@ -152,41 +139,31 @@ const Survey = () => {
             },
             {
               id: fetchedData.body[0].market2[0].option2.id,
-              name: "LaVar Burton",
+              name: "Lower cost option: Service driver takes car to their home, " +
+                  "charges it overnight, and brings it back the next day",
               price: fetchedData.body[0].market2[0].option2.price_2
                 ? fetchedData.body[0].market2[0].option2.price_2
                 : 0.0,
               quantity: fetchedData.body[0].market2[0].option2.bet_2,
               total: fetchedData.body[0].market2[0].option2.money_bet_2,
             },
-            {
-              id: fetchedData.body[0].market2[0].option3.id,
-              name: "Aaron Rodgers",
-              price: fetchedData.body[0].market2[0].option3.price_3
-                ? fetchedData.body[0].market2[0].option3.price_3
-                : 0.0,
-              quantity: fetchedData.body[0].market2[0].option3.bet_3,
-              total: fetchedData.body[0].market2[0].option3.money_bet_3,
-            },
-            {
-              id: fetchedData.body[0].market2[0].option4.id,
-              name: "Somebody else",
-              price: fetchedData.body[0].market2[0].option4.price_4
-                ? fetchedData.body[0].market2[0].option4.price_4
-                : 0.0,
-              quantity: fetchedData.body[0].market2[0].option4.bet_4,
-              total: fetchedData.body[0].market2[0].option4.money_bet_4,
-            },
           ],
         },
         {
           id: fetchedData.body[0].market3[0].id,
-          question: "How many games will BYU’s football team win?",
+          question: "Imagine there was a service where an electric car owner could pay to have" +
+              " a service provider bring a mobile charging station to charge their car for them (e.g., " +
+              "while they're shopping or at work). The service provider would meet the owner where they are," +
+              " plug in the mobile charger to charge the car, and then leave once the car is" +
+              " recharged (approximately 30 minutes). \n" +
+              "\n" +
+              "At $15 to charge from empty to full, what percentage of US EV owners would use such a service as " +
+              "their primary mode of charging their vehicle?",
           subtotal: 0,
           options: [
             {
               id: fetchedData.body[0].market3[0].option1.id,
-              name: "6 or fewer",
+              name: "0-20%",
               price: fetchedData.body[0].market3[0].option1.price_1
                 ? fetchedData.body[0].market3[0].option1.price_1
                 : 0.0,
@@ -195,7 +172,7 @@ const Survey = () => {
             },
             {
               id: fetchedData.body[0].market3[0].option2.id,
-              name: "7",
+              name: "21-40%",
               price: fetchedData.body[0].market3[0].option2.price_2
                 ? fetchedData.body[0].market3[0].option2.price_2
                 : 0.0,
@@ -203,34 +180,46 @@ const Survey = () => {
               total: fetchedData.body[0].market3[0].option2.money_bet_2,
             },
             {
-              id: fetchedData.body[0].market3[0].option3.id,
-              name: "8",
-              price: fetchedData.body[0].market3[0].option3.price_3
-                ? fetchedData.body[0].market3[0].option3.price_3
+              id: fetchedData.body[0].market3[0].option2.id,
+              name: "41-60%",
+              price: fetchedData.body[0].market3[0].option2.price_2
+                ? fetchedData.body[0].market3[0].option2.price_2
                 : 0.0,
-              quantity: fetchedData.body[0].market3[0].option3.bet_3,
-              total: fetchedData.body[0].market3[0].option3.money_bet_3,
+              quantity: fetchedData.body[0].market3[0].option2.bet_2,
+              total: fetchedData.body[0].market3[0].option2.money_bet_2,
             },
             {
-              id: fetchedData.body[0].market3[0].option4.id,
-              name: "9 or more",
-              price: fetchedData.body[0].market3[0].option4.price_4
-                ? fetchedData.body[0].market3[0].option4.price_4
+              id: fetchedData.body[0].market3[0].option2.id,
+              name: "61-80%",
+              price: fetchedData.body[0].market3[0].option2.price_2
+                ? fetchedData.body[0].market3[0].option2.price_2
                 : 0.0,
-              quantity: fetchedData.body[0].market3[0].option4.bet_4,
-              total: fetchedData.body[0].market3[0].option4.money_bet_4,
+              quantity: fetchedData.body[0].market3[0].option2.bet_2,
+              total: fetchedData.body[0].market3[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market3[0].option2.id,
+              name: "81-100%",
+              price: fetchedData.body[0].market3[0].option2.price_2
+                ? fetchedData.body[0].market3[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market3[0].option2.bet_2,
+              total: fetchedData.body[0].market3[0].option2.money_bet_2,
             },
           ],
         },
         {
           id: fetchedData.body[0].market4[0].id,
           question:
-            "Will upcoming James Bond film “No Time To Die” be “Certified Fresh” by Rotten Tomatoes?",
+            "Picture a valet service that fully charges, parks, cleans, and safekeeps an EV around metropolitan" +
+              " areas in the US. Removing the need to own a charging station at home, as well as the time invested in " +
+              "charging and parking the vehicle daily. \n" +
+          "For the average customer, what would be the price range per service?",
           subtotal: 0,
           options: [
             {
               id: fetchedData.body[0].market4[0].option1.id,
-              name: "Yes",
+              name: "Less $15",
               price: fetchedData.body[0].market4[0].option1.price_1
                 ? fetchedData.body[0].market4[0].option1.price_1
                 : 0.0,
@@ -239,12 +228,348 @@ const Survey = () => {
             },
             {
               id: fetchedData.body[0].market4[0].option2.id,
-              name: "No",
+              name: "$16 - $25",
               price: fetchedData.body[0].market4[0].option2.price_2
                 ? fetchedData.body[0].market4[0].option2.price_2
                 : 0.0,
               quantity: fetchedData.body[0].market4[0].option2.bet_2,
               total: fetchedData.body[0].market4[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market4[0].option2.id,
+              name: "$26 - $35",
+              price: fetchedData.body[0].market4[0].option2.price_2
+                ? fetchedData.body[0].market4[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market4[0].option2.bet_2,
+              total: fetchedData.body[0].market4[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market4[0].option2.id,
+              name: "$36 - $45",
+              price: fetchedData.body[0].market4[0].option2.price_2
+                ? fetchedData.body[0].market4[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market4[0].option2.bet_2,
+              total: fetchedData.body[0].market4[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market4[0].option2.id,
+              name: "$46 - $55",
+              price: fetchedData.body[0].market4[0].option2.price_2
+                ? fetchedData.body[0].market4[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market4[0].option2.bet_2,
+              total: fetchedData.body[0].market4[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market4[0].option2.id,
+              name: "$56 - $65",
+              price: fetchedData.body[0].market4[0].option2.price_2
+                ? fetchedData.body[0].market4[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market4[0].option2.bet_2,
+              total: fetchedData.body[0].market4[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market4[0].option2.id,
+              name: "More than $65",
+              price: fetchedData.body[0].market4[0].option2.price_2
+                ? fetchedData.body[0].market4[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market4[0].option2.bet_2,
+              total: fetchedData.body[0].market4[0].option2.money_bet_2,
+            },
+          ],
+        },
+        {
+          id: fetchedData.body[0].market5[0].id,
+          question:
+            "We estimate that 125 million adult Americans regularly drive gas-powered vehicles. If the majority" +
+              " of these drivers have convenient access to non-home charging, what percentage will purchase an EV as " +
+              "their next vehicle in the next 10 years?",
+          subtotal: 0,
+          options: [
+            {
+              id: fetchedData.body[0].market5[0].option1.id,
+              name: "1% to 10%",
+              price: fetchedData.body[0].market5[0].option1.price_1
+                ? fetchedData.body[0].market5[0].option1.price_1
+                : 0.0,
+              quantity: fetchedData.body[0].market5[0].option1.bet_1,
+              total: fetchedData.body[0].market4[0].option1.money_bet_1,
+            },
+            {
+              id: fetchedData.body[0].market5[0].option2.id,
+              name: "11% to 20%",
+              price: fetchedData.body[0].market5[0].option2.price_2
+                ? fetchedData.body[0].market4[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market5[0].option2.bet_2,
+              total: fetchedData.body[0].market5[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market5[0].option2.id,
+              name: "21% to 30%",
+              price: fetchedData.body[0].market5[0].option2.price_2
+                ? fetchedData.body[0].market5[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market5[0].option2.bet_2,
+              total: fetchedData.body[0].market5[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market5[0].option2.id,
+              name: "31% to 40%",
+              price: fetchedData.body[0].market5[0].option2.price_2
+                ? fetchedData.body[0].market5[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market5[0].option2.bet_2,
+              total: fetchedData.body[0].market5[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market5[0].option2.id,
+              name: "41% to 50%",
+              price: fetchedData.body[0].market5[0].option2.price_2
+                ? fetchedData.body[0].market5[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market5[0].option2.bet_2,
+              total: fetchedData.body[0].market5[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market5[0].option2.id,
+              name: "More than 50% ",
+              price: fetchedData.body[0].market5[0].option2.price_2
+                ? fetchedData.body[0].market5[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market5[0].option2.bet_2,
+              total: fetchedData.body[0].market5[0].option2.money_bet_2,
+            },
+          ],
+        },
+        {
+          id: fetchedData.body[0].market6[0].id,
+          question:
+            "Protection plans are increasingly offered with products such as TVs, phones, computers, " +
+              "appliances, auto parts, tools, etc. In 2023, what percentage of purchases will the shopper " +
+              "also purchase the protection plan if it is offered?",
+          subtotal: 0,
+          options: [
+            {
+              id: fetchedData.body[0].market6[0].option1.id,
+              name: "Less than 10%",
+              price: fetchedData.body[0].market6[0].option1.price_1
+                ? fetchedData.body[0].market6[0].option1.price_1
+                : 0.0,
+              quantity: fetchedData.body[0].market6[0].option1.bet_1,
+              total: fetchedData.body[0].market6[0].option1.money_bet_1,
+            },
+            {
+              id: fetchedData.body[0].market6[0].option2.id,
+              name: "11% to 20%",
+              price: fetchedData.body[0].market6[0].option2.price_2
+                ? fetchedData.body[0].market6[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market6[0].option2.bet_2,
+              total: fetchedData.body[0].market6[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market6[0].option2.id,
+              name: "21% to 30%",
+              price: fetchedData.body[0].market6[0].option2.price_2
+                ? fetchedData.body[0].market6[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market6[0].option2.bet_2,
+              total: fetchedData.body[0].market6[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market6[0].option2.id,
+              name: "31% to 40%",
+              price: fetchedData.body[0].market6[0].option2.price_2
+                ? fetchedData.body[0].market6[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market6[0].option2.bet_2,
+              total: fetchedData.body[0].market6[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market6[0].option2.id,
+              name: "41% to 50%",
+              price: fetchedData.body[0].market6[0].option2.price_2
+                ? fetchedData.body[0].market6[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market6[0].option2.bet_2,
+              total: fetchedData.body[0].market6[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market6[0].option2.id,
+              name: "51% to 60% ",
+              price: fetchedData.body[0].market6[0].option2.price_2
+                ? fetchedData.body[0].market6[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market6[0].option2.bet_2,
+              total: fetchedData.body[0].market6[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market6[0].option2.id,
+              name: "61% to 70%",
+              price: fetchedData.body[0].market6[0].option2.price_2
+                ? fetchedData.body[0].market6[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market6[0].option2.bet_2,
+              total: fetchedData.body[0].market6[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market6[0].option2.id,
+              name: "71% or more",
+              price: fetchedData.body[0].market6[0].option2.price_2
+                ? fetchedData.body[0].market6[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market6[0].option2.bet_2,
+              total: fetchedData.body[0].market6[0].option2.money_bet_2,
+            },
+          ],
+        },
+        {
+          id: fetchedData.body[0].market7[0].id,
+          question:
+            "In the future, when a US consumer purchases a fully autonomous vehicle, who will " +
+              "hold the insurance policy for that vehicle?",
+          subtotal: 0,
+          options: [
+            {
+              id: fetchedData.body[0].market7[0].option1.id,
+              name: "Vehicle buyer",
+              price: fetchedData.body[0].market7[0].option1.price_1
+                ? fetchedData.body[0].market7[0].option1.price_1
+                : 0.0,
+              quantity: fetchedData.body[0].market7[0].option1.bet_1,
+              total: fetchedData.body[0].market7[0].option1.money_bet_1,
+            },
+            {
+              id: fetchedData.body[0].market7[0].option2.id,
+              name: "Vehicle manufacturer",
+              price: fetchedData.body[0].market7[0].option2.price_2
+                ? fetchedData.body[0].market7[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market7[0].option2.bet_2,
+              total: fetchedData.body[0].market7[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market7[0].option2.id,
+              name: "Local government",
+              price: fetchedData.body[0].market7[0].option2.price_2
+                ? fetchedData.body[0].market7[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market7[0].option2.bet_2,
+              total: fetchedData.body[0].market7[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market7[0].option2.id,
+              name: "Passengers – pay as you go insurance",
+              price: fetchedData.body[0].market7[0].option2.price_2
+                ? fetchedData.body[0].market7[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market7[0].option2.bet_2,
+              total: fetchedData.body[0].market7[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market7[0].option2.id,
+              name: "No need for insurance",
+              price: fetchedData.body[0].market7[0].option2.price_2
+                ? fetchedData.body[0].market7[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market7[0].option2.bet_2,
+              total: fetchedData.body[0].market7[0].option2.money_bet_2,
+            },
+          ],
+        },
+        {
+          id: fetchedData.body[0].market8[0].id,
+          question:
+            "Imagine a service that delivers home scenting products via mail on a subscription basis. " +
+              "Which monthly subscription product will have more sales?",
+          subtotal: 0,
+          options: [
+            {
+              id: fetchedData.body[0].market8[0].option1.id,
+              name: "Large space diffuser - a device ($125) that scents 1,000 sq ft for $35 / month",
+              price: fetchedData.body[0].market8[0].option1.price_1
+                ? fetchedData.body[0].market8[0].option1.price_1
+                : 0.0,
+              quantity: fetchedData.body[0].market8[0].option1.bet_1,
+              total: fetchedData.body[0].market8[0].option1.money_bet_1,
+            },
+            {
+              id: fetchedData.body[0].market8[0].option2.id,
+              name: "Small space diffuser - a device ($25) that scents 500 sq ft for $15 / month",
+              price: fetchedData.body[0].market8[0].option2.price_2
+                ? fetchedData.body[0].market8[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market8[0].option2.bet_2,
+              total: fetchedData.body[0].market8[0].option2.money_bet_2,
+            },
+          ],
+        },
+        {
+          id: fetchedData.body[0].market9[0].id,
+          question:
+            "In February 2022, Tesla disabled it’s “Full Self-Driving” on 53,000 vehicles through a software" +
+              " update as part of a NHTSA recall. Will Tesla's 'Full Self-Driving' feature be reinstated " +
+              "by March 4th, 2022?",
+          subtotal: 0,
+          options: [
+            {
+              id: fetchedData.body[0].market9[0].option1.id,
+              name: "Yes",
+              price: fetchedData.body[0].market9[0].option1.price_1
+                ? fetchedData.body[0].market9[0].option1.price_1
+                : 0.0,
+              quantity: fetchedData.body[0].market9[0].option1.bet_1,
+              total: fetchedData.body[0].market9[0].option1.money_bet_1,
+            },
+            {
+              id: fetchedData.body[0].market9[0].option2.id,
+              name: "No",
+              price: fetchedData.body[0].market9[0].option2.price_2
+                ? fetchedData.body[0].market9[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market9[0].option2.bet_2,
+              total: fetchedData.body[0].market9[0].option2.money_bet_2,
+            },
+          ],
+        },
+        {
+          id: fetchedData.body[0].market10[0].id,
+          question:
+            "Of employers who provide EV charging stations in office parking lots," +
+              " which will be the most common policy in 2022?",
+          subtotal: 0,
+          options: [
+            {
+              id: fetchedData.body[0].market10[0].option1.id,
+              name: "Free EV charging to employees",
+              price: fetchedData.body[0].market10[0].option1.price_1
+                ? fetchedData.body[0].market10[0].option1.price_1
+                : 0.0,
+              quantity: fetchedData.body[0].market10[0].option1.bet_1,
+              total: fetchedData.body[0].market10[0].option1.money_bet_1,
+            },
+            {
+              id: fetchedData.body[0].market10[0].option2.id,
+              name: "Subsidized EV charging for employees, employees pay a discounted rate",
+              price: fetchedData.body[0].market10[0].option2.price_2
+                ? fetchedData.body[0].market10[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market10[0].option2.bet_2,
+              total: fetchedData.body[0].market10[0].option2.money_bet_2,
+            },
+            {
+              id: fetchedData.body[0].market10[0].option2.id,
+              name: "Employees pay full cost of charging",
+              price: fetchedData.body[0].market10[0].option2.price_2
+                ? fetchedData.body[0].market10[0].option2.price_2
+                : 0.0,
+              quantity: fetchedData.body[0].market10[0].option2.bet_2,
+              total: fetchedData.body[0].market10[0].option2.money_bet_2,
             },
           ],
         },
@@ -343,8 +668,8 @@ const Survey = () => {
         )
         .then((res: any) => {
           if (res?.data?.message === "success") {
-            setShowThankyouPage(true);
-            setLocalThankYouPage(true);
+            let url = `https://vivint.az1.qualtrics.com/jfe/form/SV_5yWNcj04ZjV7yyG?RID=${RID}`
+              window.location.href = url;
           } else {
             toast.error(res?.data?.message);
           }

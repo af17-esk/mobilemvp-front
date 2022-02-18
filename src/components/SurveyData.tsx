@@ -92,15 +92,15 @@ const SurveyData: React.FC<Props> = ({
         <div className="survey_data" key={market.id}>
           <div className="survey_data_question">
             <h3>{market.question}</h3>
-            <img
-              src={InfoLogo}
-              alt="Info Logo"
-              onClick={() => {
-                setShowInfoPopup(!showInfoPopup);
-                setInfoID(JSON.parse(market.id));
-              }}
-              style={{ cursor: "pointer" }}
-            />
+            {/*<img*/}
+            {/*  src={InfoLogo}*/}
+            {/*  alt="Info Logo"*/}
+            {/*  onClick={() => {*/}
+            {/*    setShowInfoPopup(!showInfoPopup);*/}
+            {/*    setInfoID(JSON.parse(market.id));*/}
+            {/*  }}*/}
+            {/*  style={{ cursor: "pointer" }}*/}
+            {/*/>*/}
           </div>
           <div className="survey_data_options">
             {market.options.map((marketOption, marketOptionIndex) => (
