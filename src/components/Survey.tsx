@@ -180,31 +180,31 @@ const Survey = () => {
               total: fetchedData.body[0].market3[0].option2.money_bet_2,
             },
             {
-              id: fetchedData.body[0].market3[0].option2.id,
+              id: fetchedData.body[0].market3[0].option3.id,
               name: "41-60%",
-              price: fetchedData.body[0].market3[0].option2.price_2
-                ? fetchedData.body[0].market3[0].option2.price_2
+              price: fetchedData.body[0].market3[0].option3.price_3
+                ? fetchedData.body[0].market3[0].option3.price_3
                 : 0.0,
-              quantity: fetchedData.body[0].market3[0].option2.bet_2,
-              total: fetchedData.body[0].market3[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market3[0].option3.bet_3,
+              total: fetchedData.body[0].market3[0].option3.money_bet_3,
             },
             {
-              id: fetchedData.body[0].market3[0].option2.id,
+              id: fetchedData.body[0].market3[0].option4.id,
               name: "61-80%",
-              price: fetchedData.body[0].market3[0].option2.price_2
-                ? fetchedData.body[0].market3[0].option2.price_2
+              price: fetchedData.body[0].market3[0].option4.price_4
+                ? fetchedData.body[0].market3[0].option4.price_4
                 : 0.0,
-              quantity: fetchedData.body[0].market3[0].option2.bet_2,
-              total: fetchedData.body[0].market3[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market3[0].option4.bet_4,
+              total: fetchedData.body[0].market3[0].option4.money_bet_4,
             },
             {
-              id: fetchedData.body[0].market3[0].option2.id,
+              id: fetchedData.body[0].market3[0].option5.id,
               name: "81-100%",
-              price: fetchedData.body[0].market3[0].option2.price_2
-                ? fetchedData.body[0].market3[0].option2.price_2
+              price: fetchedData.body[0].market3[0].option5.price_5
+                ? fetchedData.body[0].market3[0].option5.price_5
                 : 0.0,
-              quantity: fetchedData.body[0].market3[0].option2.bet_2,
-              total: fetchedData.body[0].market3[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market3[0].option5.bet_5,
+              total: fetchedData.body[0].market3[0].option5.money_bet_5,
             },
           ],
         },
@@ -236,49 +236,49 @@ const Survey = () => {
               total: fetchedData.body[0].market4[0].option2.money_bet_2,
             },
             {
-              id: fetchedData.body[0].market4[0].option2.id,
-              name: "$26 - $35",
-              price: fetchedData.body[0].market4[0].option2.price_2
-                ? fetchedData.body[0].market4[0].option2.price_2
+              id: fetchedData.body[0].market4[0].option3.id,
+              name: "$36 - $35",
+              price: fetchedData.body[0].market4[0].option3.price_3
+                ? fetchedData.body[0].market4[0].option3.price_3
                 : 0.0,
-              quantity: fetchedData.body[0].market4[0].option2.bet_2,
-              total: fetchedData.body[0].market4[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market4[0].option3.bet_3,
+              total: fetchedData.body[0].market4[0].option3.money_bet_3,
             },
             {
-              id: fetchedData.body[0].market4[0].option2.id,
+              id: fetchedData.body[0].market4[0].option4.id,
               name: "$36 - $45",
-              price: fetchedData.body[0].market4[0].option2.price_2
-                ? fetchedData.body[0].market4[0].option2.price_2
+              price: fetchedData.body[0].market4[0].option4.price_4
+                ? fetchedData.body[0].market4[0].option4.price_4
                 : 0.0,
-              quantity: fetchedData.body[0].market4[0].option2.bet_2,
-              total: fetchedData.body[0].market4[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market4[0].option4.bet_4,
+              total: fetchedData.body[0].market4[0].option4.money_bet_4,
             },
             {
-              id: fetchedData.body[0].market4[0].option2.id,
+              id: fetchedData.body[0].market4[0].option5.id,
               name: "$46 - $55",
-              price: fetchedData.body[0].market4[0].option2.price_2
-                ? fetchedData.body[0].market4[0].option2.price_2
+              price: fetchedData.body[0].market4[0].option5.price_5
+                ? fetchedData.body[0].market4[0].option5.price_5
                 : 0.0,
-              quantity: fetchedData.body[0].market4[0].option2.bet_2,
-              total: fetchedData.body[0].market4[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market4[0].option5.bet_5,
+              total: fetchedData.body[0].market4[0].option5.money_bet_5,
             },
             {
-              id: fetchedData.body[0].market4[0].option2.id,
+              id: fetchedData.body[0].market4[0].option6.id,
               name: "$56 - $65",
-              price: fetchedData.body[0].market4[0].option2.price_2
-                ? fetchedData.body[0].market4[0].option2.price_2
+              price: fetchedData.body[0].market4[0].option6.price_6
+                ? fetchedData.body[0].market4[0].option6.price_6
                 : 0.0,
-              quantity: fetchedData.body[0].market4[0].option2.bet_2,
-              total: fetchedData.body[0].market4[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market4[0].option6.bet_6,
+              total: fetchedData.body[0].market4[0].option6.money_bet_6,
             },
             {
-              id: fetchedData.body[0].market4[0].option2.id,
+              id: fetchedData.body[0].market4[0].option7.id,
               name: "More than $65",
-              price: fetchedData.body[0].market4[0].option2.price_2
-                ? fetchedData.body[0].market4[0].option2.price_2
+              price: fetchedData.body[0].market4[0].option7.price_7
+                ? fetchedData.body[0].market4[0].option7.price_7
                 : 0.0,
-              quantity: fetchedData.body[0].market4[0].option2.bet_2,
-              total: fetchedData.body[0].market4[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market4[0].option7.bet_7,
+              total: fetchedData.body[0].market4[0].option7.money_bet_7,
             },
           ],
         },
@@ -309,40 +309,40 @@ const Survey = () => {
               total: fetchedData.body[0].market5[0].option2.money_bet_2,
             },
             {
-              id: fetchedData.body[0].market5[0].option2.id,
+              id: fetchedData.body[0].market5[0].option3.id,
               name: "21% to 30%",
-              price: fetchedData.body[0].market5[0].option2.price_2
-                ? fetchedData.body[0].market5[0].option2.price_2
+              price: fetchedData.body[0].market5[0].option3.price_3
+                ? fetchedData.body[0].market5[0].option3.price_3
                 : 0.0,
-              quantity: fetchedData.body[0].market5[0].option2.bet_2,
-              total: fetchedData.body[0].market5[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market5[0].option3.bet_3,
+              total: fetchedData.body[0].market5[0].option3.money_bet_3,
             },
             {
-              id: fetchedData.body[0].market5[0].option2.id,
+              id: fetchedData.body[0].market5[0].option4.id,
               name: "31% to 40%",
-              price: fetchedData.body[0].market5[0].option2.price_2
-                ? fetchedData.body[0].market5[0].option2.price_2
+              price: fetchedData.body[0].market5[0].option4.price_4
+                ? fetchedData.body[0].market5[0].option4.price_4
                 : 0.0,
-              quantity: fetchedData.body[0].market5[0].option2.bet_2,
-              total: fetchedData.body[0].market5[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market5[0].option4.bet_4,
+              total: fetchedData.body[0].market5[0].option4.money_bet_4,
             },
             {
-              id: fetchedData.body[0].market5[0].option2.id,
+              id: fetchedData.body[0].market5[0].option5.id,
               name: "41% to 50%",
-              price: fetchedData.body[0].market5[0].option2.price_2
-                ? fetchedData.body[0].market5[0].option2.price_2
+              price: fetchedData.body[0].market5[0].option5.price_5
+                ? fetchedData.body[0].market5[0].option5.price_5
                 : 0.0,
-              quantity: fetchedData.body[0].market5[0].option2.bet_2,
-              total: fetchedData.body[0].market5[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market5[0].option5.bet_5,
+              total: fetchedData.body[0].market5[0].option5.money_bet_5,
             },
             {
-              id: fetchedData.body[0].market5[0].option2.id,
+              id: fetchedData.body[0].market5[0].option6.id,
               name: "More than 50% ",
-              price: fetchedData.body[0].market5[0].option2.price_2
-                ? fetchedData.body[0].market5[0].option2.price_2
+              price: fetchedData.body[0].market5[0].option6.price_6
+                ? fetchedData.body[0].market5[0].option6.price_6
                 : 0.0,
-              quantity: fetchedData.body[0].market5[0].option2.bet_2,
-              total: fetchedData.body[0].market5[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market5[0].option6.bet_6,
+              total: fetchedData.body[0].market5[0].option6.money_bet_6,
             },
           ],
         },
@@ -373,58 +373,58 @@ const Survey = () => {
               total: fetchedData.body[0].market6[0].option2.money_bet_2,
             },
             {
-              id: fetchedData.body[0].market6[0].option2.id,
+              id: fetchedData.body[0].market6[0].option3.id,
               name: "21% to 30%",
-              price: fetchedData.body[0].market6[0].option2.price_2
-                ? fetchedData.body[0].market6[0].option2.price_2
+              price: fetchedData.body[0].market6[0].option3.price_3
+                ? fetchedData.body[0].market6[0].option3.price_3
                 : 0.0,
-              quantity: fetchedData.body[0].market6[0].option2.bet_2,
-              total: fetchedData.body[0].market6[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market6[0].option3.bet_3,
+              total: fetchedData.body[0].market6[0].option3.money_bet_3,
             },
             {
-              id: fetchedData.body[0].market6[0].option2.id,
+              id: fetchedData.body[0].market6[0].option4.id,
               name: "31% to 40%",
-              price: fetchedData.body[0].market6[0].option2.price_2
-                ? fetchedData.body[0].market6[0].option2.price_2
+              price: fetchedData.body[0].market6[0].option4.price_4
+                ? fetchedData.body[0].market6[0].option4.price_4
                 : 0.0,
-              quantity: fetchedData.body[0].market6[0].option2.bet_2,
-              total: fetchedData.body[0].market6[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market6[0].option4.bet_4,
+              total: fetchedData.body[0].market6[0].option4.money_bet_4,
             },
             {
-              id: fetchedData.body[0].market6[0].option2.id,
+              id: fetchedData.body[0].market6[0].option5.id,
               name: "41% to 50%",
-              price: fetchedData.body[0].market6[0].option2.price_2
-                ? fetchedData.body[0].market6[0].option2.price_2
+              price: fetchedData.body[0].market6[0].option5.price_5
+                ? fetchedData.body[0].market6[0].option5.price_5
                 : 0.0,
-              quantity: fetchedData.body[0].market6[0].option2.bet_2,
-              total: fetchedData.body[0].market6[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market6[0].option5.bet_5,
+              total: fetchedData.body[0].market6[0].option5.money_bet_5,
             },
             {
-              id: fetchedData.body[0].market6[0].option2.id,
+              id: fetchedData.body[0].market6[0].option6.id,
               name: "51% to 60% ",
-              price: fetchedData.body[0].market6[0].option2.price_2
-                ? fetchedData.body[0].market6[0].option2.price_2
+              price: fetchedData.body[0].market6[0].option6.price_6
+                ? fetchedData.body[0].market6[0].option6.price_6
                 : 0.0,
-              quantity: fetchedData.body[0].market6[0].option2.bet_2,
-              total: fetchedData.body[0].market6[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market6[0].option6.bet_6,
+              total: fetchedData.body[0].market6[0].option6.money_bet_6,
             },
             {
-              id: fetchedData.body[0].market6[0].option2.id,
+              id: fetchedData.body[0].market6[0].option7.id,
               name: "61% to 70%",
-              price: fetchedData.body[0].market6[0].option2.price_2
-                ? fetchedData.body[0].market6[0].option2.price_2
+              price: fetchedData.body[0].market6[0].option7.price_7
+                ? fetchedData.body[0].market6[0].option7.price_7
                 : 0.0,
-              quantity: fetchedData.body[0].market6[0].option2.bet_2,
-              total: fetchedData.body[0].market6[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market6[0].option7.bet_7,
+              total: fetchedData.body[0].market6[0].option7.money_bet_7,
             },
             {
-              id: fetchedData.body[0].market6[0].option2.id,
+              id: fetchedData.body[0].market6[0].option8.id,
               name: "71% or more",
-              price: fetchedData.body[0].market6[0].option2.price_2
-                ? fetchedData.body[0].market6[0].option2.price_2
+              price: fetchedData.body[0].market6[0].option8.price_8
+                ? fetchedData.body[0].market6[0].option8.price_8
                 : 0.0,
-              quantity: fetchedData.body[0].market6[0].option2.bet_2,
-              total: fetchedData.body[0].market6[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market6[0].option8.bet_8,
+              total: fetchedData.body[0].market6[0].option8.money_bet_8,
             },
           ],
         },
@@ -454,31 +454,31 @@ const Survey = () => {
               total: fetchedData.body[0].market7[0].option2.money_bet_2,
             },
             {
-              id: fetchedData.body[0].market7[0].option2.id,
+              id: fetchedData.body[0].market7[0].option3.id,
               name: "Local government",
-              price: fetchedData.body[0].market7[0].option2.price_2
-                ? fetchedData.body[0].market7[0].option2.price_2
+              price: fetchedData.body[0].market7[0].option3.price_3
+                ? fetchedData.body[0].market7[0].option3.price_3
                 : 0.0,
-              quantity: fetchedData.body[0].market7[0].option2.bet_2,
-              total: fetchedData.body[0].market7[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market7[0].option3.bet_3,
+              total: fetchedData.body[0].market7[0].option3.money_bet_3,
             },
             {
-              id: fetchedData.body[0].market7[0].option2.id,
+              id: fetchedData.body[0].market7[0].option4.id,
               name: "Passengers – pay as you go insurance",
-              price: fetchedData.body[0].market7[0].option2.price_2
-                ? fetchedData.body[0].market7[0].option2.price_2
+              price: fetchedData.body[0].market7[0].option4.price_4
+                ? fetchedData.body[0].market7[0].option4.price_4
                 : 0.0,
-              quantity: fetchedData.body[0].market7[0].option2.bet_2,
-              total: fetchedData.body[0].market7[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market7[0].option4.bet_4,
+              total: fetchedData.body[0].market7[0].option4.money_bet_4,
             },
             {
-              id: fetchedData.body[0].market7[0].option2.id,
+              id: fetchedData.body[0].market7[0].option5.id,
               name: "No need for insurance",
-              price: fetchedData.body[0].market7[0].option2.price_2
-                ? fetchedData.body[0].market7[0].option2.price_2
+              price: fetchedData.body[0].market7[0].option5.price_5
+                ? fetchedData.body[0].market7[0].option5.price_5
                 : 0.0,
-              quantity: fetchedData.body[0].market7[0].option2.bet_2,
-              total: fetchedData.body[0].market7[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market7[0].option5.bet_5,
+              total: fetchedData.body[0].market7[0].option5.money_bet_5,
             },
           ],
         },
@@ -563,13 +563,13 @@ const Survey = () => {
               total: fetchedData.body[0].market10[0].option2.money_bet_2,
             },
             {
-              id: fetchedData.body[0].market10[0].option2.id,
+              id: fetchedData.body[0].market10[0].option3.id,
               name: "Employees pay full cost of charging",
-              price: fetchedData.body[0].market10[0].option2.price_2
-                ? fetchedData.body[0].market10[0].option2.price_2
+              price: fetchedData.body[0].market10[0].option3.price_3
+                ? fetchedData.body[0].market10[0].option3.price_3
                 : 0.0,
-              quantity: fetchedData.body[0].market10[0].option2.bet_2,
-              total: fetchedData.body[0].market10[0].option2.money_bet_2,
+              quantity: fetchedData.body[0].market10[0].option3.bet_3,
+              total: fetchedData.body[0].market10[0].option3.money_bet_3,
             },
           ],
         },
