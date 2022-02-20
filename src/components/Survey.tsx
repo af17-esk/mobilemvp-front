@@ -668,7 +668,7 @@ const Survey = () => {
         )
         .then((res: any) => {
           if (res?.data?.message === "success") {
-            let url = `https://vivint.az1.qualtrics.com/jfe/form/SV_5yWNcj04ZjV7yyG?RID=${RID}`
+            let url = `https://vivint.az1.qualtrics.com/jfe/form/SV_5yWNcj04ZjV7yyG?psid=${RID}`
               window.location.href = url;
           } else {
             toast.error(res?.data?.message);
